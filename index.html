@@ -3,98 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brazoria County Political Guide</title>
+  <title>Brazoria County Civic Record</title>
+  <meta name="description" content="An independent guide to Brazoria County officials, public meeting records, and searchable public video sources.">
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 
-  <!-- Top Accessibility Bar for Older Users -->
   <header class="top-bar">
     <div class="container accessibility-controls">
-      <span>Accessibility Options:</span>
+      <span class="accessibility-label">Reading tools</span>
       <button id="btn-font-decrease" aria-label="Decrease text size">A-</button>
       <button id="btn-font-increase" aria-label="Increase text size">A+</button>
-      <button id="btn-contrast-toggle" aria-label="Toggle high contrast">High Contrast</button>
+      <button id="btn-contrast-toggle" aria-pressed="false">High contrast</button>
     </div>
   </header>
 
-  <!-- Main Website Header -->
   <header class="main-header">
     <div class="container">
-      <h1>Brazoria County's Civic Transparency</h1>
-      <p>An independent, non biased guide to our local government, officials, and votes.</p>
+      <p class="eyebrow">BRAZORIA COUNTY, TEXAS <span>·</span> PUBLIC RECORD GUIDE</p>
+      <h1>Know who is making the record.</h1>
+      <p>Officials, meeting documents, and public video searches for Brazoria County.</p>
     </div>
   </header>
 
-  <!-- Legal & Neutrality Disclaimer -->
   <section class="disclaimer-banner">
     <div class="container">
-      <strong>Important Disclaimer:</strong> This site is an independent educational tool. It is non-partisan and not affiliated with, funded by, or endorsed by the local city or county government. All data is sourced from official public records.
+      <strong>Independent guide.</strong> Not affiliated with Brazoria County. Official county records are linked as primary sources; search results and auto-captions are leads that should be checked against the original recording and record.
     </div>
   </section>
 
   <main class="container">
-    <!-- Quick Educational Section -->
-    <section class="info-section">
-      <h2>How Local Government Works</h2>
-      <p>Local elected officials decide zoning, property taxes, road maintenance, and community development. Here is how our city/county leadership operates daily.</p>
+    <section class="overview-section" aria-labelledby="overview-heading">
+      <div class="section-intro">
+        <p class="eyebrow">START WITH THE RECORD</p>
+        <h2 id="overview-heading">One court. Five elected members.</h2>
+        <p>Brazoria County's Commissioners Court consists of the County Judge and four precinct commissioners. It handles county business including the budget, tax rate, purchases, and county facilities.</p>
+      </div>
+      <nav class="source-links" aria-label="Official Brazoria County resources">
+        <a href="https://www.brazoriacountytx.gov/government/commissioners-court" target="_blank" rel="noopener noreferrer">Court overview <span aria-hidden="true">↗</span></a>
+        <a href="https://brazoriacountytx.legistar.com/" target="_blank" rel="noopener noreferrer">Agendas &amp; minutes <span aria-hidden="true">↗</span></a>
+        <a href="https://portal-txbrazoria.tylertech.cloud/PublicAccess" target="_blank" rel="noopener noreferrer">Public records <span aria-hidden="true">↗</span></a>
+        <a href="https://www.brazoriacountytx.gov/departments/financial-transparency" target="_blank" rel="noopener noreferrer">Financial transparency <span aria-hidden="true">↗</span></a>
+        <a href="https://www.brazoriacountytx.gov/government/elected-officials-county-state-and-federal" target="_blank" rel="noopener noreferrer">All elected officials <span aria-hidden="true">↗</span></a>
+      </nav>
     </section>
 
-    <!-- Officials Directory Grid -->
-    <section class="directory-section">
-      <h2>Elected Officials Overview</h2>
-      
-      <div class="cards-grid">
-        <!-- Official Card 1 Example -->
-        <article class="official-card">
-          <div class="card-header">
-            <h3>Jane Doe</h3>
-            <span class="role-badge">Mayor</span>
-          </div>
-          <p class="term"><strong>Term:</strong> 2022 – 2026</p>
-          <hr>
-          <h4>Daily Duties</h4>
-          <p>Oversees city department heads, signs ordinances into law, and represents the county in regional planning.</p>
-          
-          <h4>Recent Key Votes / Actions</h4>
-          <ul>
-            <li><strong>Downtown Rezoning:</strong> Voted YES (March 2026)</li>
-            <li><strong>Road Maintenance Budget:</strong> Voted YES (Jan 2026)</li>
-          </ul>
+    <section class="directory-section" aria-labelledby="directory-heading">
+      <div class="directory-heading">
+        <div>
+          <p class="eyebrow">OFFICEHOLDERS</p>
+          <h2 id="directory-heading">Commissioners Court</h2>
+        </div>
+        <p class="checked-date">Names checked against county pages · September 2026</p>
+      </div>
 
-          <h4>Public Financial Disclosures</h4>
-          <p class="small-text">Sourced from official campaign reports:</p>
-          <p>Top Donors: Local Business Association ($2,500), Community Growth PAC ($1,000)</p>
-        </article>
+      <div class="directory-tools">
+        <label class="search-field" for="official-search">
+          <span class="visually-hidden">Search officials</span>
+          <span aria-hidden="true">⌕</span>
+          <input id="official-search" type="search" placeholder="Search by name or precinct" autocomplete="off">
+        </label>
+        <p id="results-count" class="results-count" aria-live="polite"></p>
+      </div>
 
-        <!-- Official Card 2 Example -->
-        <article class="official-card">
-          <div class="card-header">
-            <h3>John Smith</h3>
-            <span class="role-badge">Council Member - District 1</span>
-          </div>
-          <p class="term"><strong>Term:</strong> 2024 – 2028</p>
-          <hr>
-          <h4>Daily Duties</h4>
-          <p>Represents residents in District 1, reviews city development budgets, and votes on local ordinances.</p>
-          
-          <h4>Recent Key Votes / Actions</h4>
-          <ul>
-            <li><strong>Parks Improvement Fund:</strong> Voted NO (Feb 2026)</li>
-            <li><strong>Downtown Rezoning:</strong> Voted NO (March 2026)</li>
-          </ul>
+      <div id="official-cards" class="cards-grid"></div>
+      <p id="no-results" class="no-results" hidden>No officials match that search.</p>
+    </section>
 
-          <h4>Public Financial Disclosures</h4>
-          <p class="small-text">Sourced from official campaign reports:</p>
-          <p>Top Donors: Individual Small Business Donors ($800)</p>
-        </article>
+    <section class="transcript-note" aria-labelledby="transcript-heading">
+      <div class="transcript-mark" aria-hidden="true">REC</div>
+      <div>
+        <p class="eyebrow">ABOUT VIDEO TRANSCRIPTS</p>
+        <h2 id="transcript-heading">Search can find recordings. It cannot certify every word.</h2>
+        <p>These links search public web results by official. They do not retrieve every video or produce a verified transcript. Captions may be missing or inaccurate, and search results can omit recordings. For a checkable quote, use the original video and timestamp, then compare it with the posted agenda, minutes, or other official record.</p>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 Local Civic Transparency Project. Sourced exclusively from official public meeting minutes and public filings.</p>
+      <p>Independent public-interest project · Officeholder information links to Brazoria County sources. Verify changing information with the county.</p>
     </div>
   </footer>
 
