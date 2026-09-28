@@ -324,6 +324,25 @@ input:focus-visible {
   line-height: 1.2;
 }
 
+.card-title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+}
+
+.deeper-dive-link {
+  color: #a84631;
+  font-size: 0.74em;
+  font-weight: 800;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.deeper-dive-link:hover {
+  color: var(--green-dark);
+}
+
 .role-badge {
   flex: 0 0 auto;
   border: 1px solid #c2d6c7;
@@ -467,6 +486,7 @@ body.high-contrast .role-badge {
 
 body.high-contrast .source-links a,
 body.high-contrast .card-actions a,
+body.high-contrast .deeper-dive-link,
 body.high-contrast .role-badge,
 body.high-contrast .eyebrow,
 body.high-contrast .card-actions a.video-search {

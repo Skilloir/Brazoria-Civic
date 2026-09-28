@@ -2,6 +2,7 @@ const officials = [
   {
     name: 'L.M. "Matt" Sebesta, Jr.',
     searchName: 'Matt Sebesta',
+    slug: 'matt-sebesta',
     role: 'County Judge',
     searchTerms: 'County Judge',
     summary: 'Presides over Commissioners Court, serves as chief county administrator, and directs emergency management.',
@@ -9,6 +10,7 @@ const officials = [
   },
   {
     name: 'Jay Burridge',
+    slug: 'jay-burridge',
     role: 'Commissioner · Precinct 1',
     searchTerms: 'Commissioner Precinct 1',
     summary: 'Represents Precinct 1 on Commissioners Court. The county lists Engineering and Parks as his court liaison areas.',
@@ -16,6 +18,7 @@ const officials = [
   },
   {
     name: 'Ryan Cade',
+    slug: 'ryan-cade',
     role: 'Commissioner · Precinct 2',
     searchTerms: 'Commissioner Precinct 2',
     summary: 'Represents Precinct 2 on Commissioners Court and participates in countywide court decisions.',
@@ -23,6 +26,7 @@ const officials = [
   },
   {
     name: 'Stacy Adams',
+    slug: 'stacy-adams',
     role: 'Commissioner · Precinct 3',
     searchTerms: 'Commissioner Precinct 3',
     summary: 'Represents Precinct 3 on Commissioners Court and participates in countywide court decisions.',
@@ -30,6 +34,7 @@ const officials = [
   },
   {
     name: 'David Linder',
+    slug: 'david-linder',
     role: 'Commissioner · Precinct 4',
     searchTerms: 'Commissioner Precinct 4',
     summary: 'Represents Precinct 4 on Commissioners Court. The county lists Airport, Environmental Health, Purchasing, and Child Protective Services as his court liaison areas.',
@@ -51,7 +56,10 @@ function makeOfficialCard(official) {
   return `
     <article class="official-card">
       <div class="card-header">
-        <h3>${official.name}</h3>
+        <div class="card-title-group">
+          <h3>${official.name}</h3>
+          <a class="deeper-dive-link" href="deep-dive/index.html?official=${official.slug}">Deeper Dive <span aria-hidden="true">→</span></a>
+        </div>
         <span class="role-badge">${official.role}</span>
       </div>
       <p class="responsibility"><strong>Public role:</strong> ${official.summary}</p>

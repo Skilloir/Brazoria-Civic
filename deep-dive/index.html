@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A source-linked review of Brazoria County public officials and the evidence available to evaluate their public record.">
+  <title>Official Deep Dive | Brazoria County Civic Record</title>
+  <link rel="stylesheet" href="../style/style.css">
+  <link rel="stylesheet" href="dive.css">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="container accessibility-controls">
+      <span class="accessibility-label">Reading tools</span>
+      <button id="btn-font-decrease" aria-label="Decrease text size">A-</button>
+      <button id="btn-font-increase" aria-label="Increase text size">A+</button>
+      <button id="btn-contrast-toggle" aria-pressed="false">High contrast</button>
+    </div>
+  </header>
+
+  <header class="main-header dive-header">
+    <div class="container">
+      <a class="back-link" href="../index.html">← Back to all officials</a>
+      <p class="eyebrow">BRAZORIA COUNTY, TEXAS <span>·</span> PUBLIC RECORD REVIEW</p>
+      <div id="official-heading" aria-live="polite">
+        <h1>Loading official profile</h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="container dive-main" id="dive-content">
+    <section class="finding-callout" aria-labelledby="finding-heading">
+      <p class="finding-label">MOST CONSEQUENTIAL DOCUMENTED CONCERN</p>
+      <h2 id="finding-heading">Not assessed in this review</h2>
+      <p>No meeting-by-meeting votes or outcome dataset has been reconciled for this profile. That is an evidence gap, not a finding that no negative results exist.</p>
+    </section>
+
+    <p class="review-limit">This is a source guide, not a performance audit. County biographies are county-published descriptions and are not independent evaluations.</p>
+
+    <section class="dive-grid" aria-label="Public record assessment">
+      <article class="dive-panel strengths-panel">
+        <p class="eyebrow">COUNTY-REPORTED BACKGROUND</p>
+        <h2>Strengths and experience</h2>
+        <div id="official-strengths"></div>
+        <a id="official-source" class="text-link" href="#" target="_blank" rel="noopener noreferrer">Read the county profile ↗</a>
+      </article>
+
+      <article class="dive-panel">
+        <p class="eyebrow">EVIDENCE STATUS</p>
+        <h2>Weaknesses to assess</h2>
+        <p>Performance weaknesses have not been independently assessed here. A biography cannot establish effectiveness, and missing vote analysis should not be mistaken for a clean record.</p>
+        <ul class="evidence-checklist">
+          <li>Compare campaign or public commitments with dated actions.</li>
+          <li>Check roll-call votes, abstentions, and meeting records.</li>
+          <li>Use primary records and give the official's response where available.</li>
+        </ul>
+      </article>
+
+      <article class="dive-panel">
+        <p class="eyebrow">FOLLOW-UP QUESTIONS</p>
+        <h2>Potential improvements</h2>
+        <p>These are ways to make the public record easier to evaluate, not claims that this official has failed to do them.</p>
+        <ul class="evidence-checklist">
+          <li>Publish searchable votes with agenda item, date, and each member's vote.</li>
+          <li>Report promised outcomes against a baseline, budget, and deadline.</li>
+          <li>Link public statements to recordings and timestamped transcripts.</li>
+        </ul>
+      </article>
+
+      <article class="dive-panel negative-panel">
+        <p class="eyebrow">VERIFIED NEGATIVE RESULTS</p>
+        <h2>No findings entered</h2>
+        <p>Negative outcomes have not been systematically reviewed for this profile. Any future entry should identify the decision or result, date, primary source, impact, and relevant response or context.</p>
+      </article>
+    </section>
+
+    <section class="rating-panel" aria-labelledby="rating-heading">
+      <div class="rating-topline">
+        <div>
+          <p class="eyebrow">COMPARABLE SCORECARD</p>
+          <h2 id="rating-heading">Overall rating</h2>
+        </div>
+        <p class="rating-value"><strong>NR</strong><span>/ 100</span></p>
+      </div>
+      <p class="rating-explanation">Not rated: assigning a number without comparable outcome evidence would create false precision. Each category is worth 20 points and should be scored only after the same period and source standard are applied to every official.</p>
+      <div class="rating-criteria">
+        <div><strong>Record completeness</strong><span>0–20 points</span></div>
+        <div><strong>Decision traceability</strong><span>0–20 points</span></div>
+        <div><strong>Measurable outcomes</strong><span>0–20 points</span></div>
+        <div><strong>Follow-through</strong><span>0–20 points</span></div>
+        <div><strong>Public transparency</strong><span>0–20 points</span></div>
+      </div>
+    </section>
+
+    <section class="records-panel" aria-labelledby="records-heading">
+      <div>
+        <p class="eyebrow">PRIMARY SOURCES</p>
+        <h2 id="records-heading">Check the underlying record</h2>
+      </div>
+      <div class="record-links">
+        <a id="video-search" href="#" target="_blank" rel="noopener noreferrer">Search public videos ↗</a>
+        <a href="https://brazoriacountytx.legistar.com/" target="_blank" rel="noopener noreferrer">Commissioners Court agendas and minutes ↗</a>
+        <a href="https://portal-txbrazoria.tylertech.cloud/PublicAccess" target="_blank" rel="noopener noreferrer">County public records portal ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Independent public-interest project · Corrections should include a source and date. Verify changing information with Brazoria County.</p>
+    </div>
+  </footer>
+
+  <script src="dive.js"></script>
+  <script>
+    let currentScale = 1;
+    const updateFontScale = (value) => {
+      currentScale = Math.max(0.8, Math.min(1.4, Math.round(value * 10) / 10));
+      document.documentElement.style.setProperty('--font-scale', currentScale);
+    };
+    document.getElementById('btn-font-increase').addEventListener('click', () => updateFontScale(currentScale + 0.1));
+    document.getElementById('btn-font-decrease').addEventListener('click', () => updateFontScale(currentScale - 0.1));
+    const contrastButton = document.getElementById('btn-contrast-toggle');
+    contrastButton.addEventListener('click', () => {
+      const isEnabled = document.body.classList.toggle('high-contrast');
+      contrastButton.setAttribute('aria-pressed', String(isEnabled));
+    });
+  </script>
+</body>
+</html>
