@@ -5,7 +5,14 @@ const officials = [
     slug: 'matt-sebesta',
     role: 'County Judge',
     searchTerms: 'County Judge',
-    summary: 'Presides over Commissioners Court, serves as chief county administrator, and directs emergency management.',
+    summary: 'Presiding officer of Commissioners Court and County Emergency Management Director.',
+    tldr: 'Texas A&M civil engineering graduate; Angleton mayor (1998–2002) and Precinct 2 commissioner (2007–2014).',
+    area: 'Countywide',
+    focus: 'Voted in favor of economic development and tax abatements; verify individual roll-call votes in court records.',
+    quote: 'It is an honor and a privilege to serve the citizens of Brazoria County.',
+    quoteSource: 'County Judge profile',
+    evidenceNote: 'The August 2026 apology and $2,500 donation to BACH are reported claims. Use the linked station coverage and court records to confirm context and dates; this page does not supply a verbatim apology quote.',
+    proofUrl: 'https://abc13.com/post/brazoria-county-judge-apologizes-offensive-comments-commissioners-court-meeting/19754563/',
     profile: 'https://www.brazoriacountytx.gov/government/commissioners-court/county-judge'
   },
   {
@@ -13,7 +20,11 @@ const officials = [
     slug: 'jay-burridge',
     role: 'Commissioner · Precinct 1',
     searchTerms: 'Commissioner Precinct 1',
-    summary: 'Represents Precinct 1 on Commissioners Court. The county lists Engineering and Parks as his court liaison areas.',
+    summary: 'Represents Precinct 1, including Freeport, Clute, and Lake Jackson.',
+    tldr: 'Commissioner for Brazoria County’s coastal industrial and port communities.',
+    area: 'Freeport, Clute, and Lake Jackson',
+    focus: 'Port accessibility, road repairs, and industrial zoning infrastructure.',
+    evidenceNote: 'These are civic topics to track, not verified statements of the commissioner’s priorities. Check agendas, minutes, and project records for individual decisions and outcomes.',
     profile: 'https://www.brazoriacountytx.gov/government/commissioners-court/commissioner-precinct-1'
   },
   {
@@ -21,15 +32,23 @@ const officials = [
     slug: 'ryan-cade',
     role: 'Commissioner · Precinct 2',
     searchTerms: 'Commissioner Precinct 2',
-    summary: 'Represents Precinct 2 on Commissioners Court and participates in countywide court decisions.',
+    summary: 'Represents Precinct 2, including Angleton and central Brazoria County.',
+    tldr: 'Commissioner for Angleton and central county communities.',
+    area: 'Angleton and central Brazoria County',
+    focus: 'Drainage projects, county facilities, and central precinct growth management.',
+    evidenceNote: 'These are civic topics to track, not verified statements of the commissioner’s priorities. Check agendas, minutes, and project records for individual decisions and outcomes.',
     profile: 'https://www.brazoriacountytx.gov/government/commissioners-court/commissioner-precinct-2'
   },
   {
-    name: 'Stacy Adams',
+    name: 'Stacy L. Adams',
     slug: 'stacy-adams',
     role: 'Commissioner · Precinct 3',
     searchTerms: 'Commissioner Precinct 3',
-    summary: 'Represents Precinct 3 on Commissioners Court and participates in countywide court decisions.',
+    summary: 'Represents Precinct 3, including Pearland and Alvin.',
+    tldr: 'Commissioner for the county’s northern suburban communities.',
+    area: 'Pearland and Alvin',
+    focus: 'Suburban transit corridors, public safety funding, and northern growth management.',
+    evidenceNote: 'These are civic topics to track, not verified statements of the commissioner’s priorities. Check agendas, minutes, and project records for individual decisions and outcomes.',
     profile: 'https://www.brazoriacountytx.gov/government/commissioners-court/commissioner-precinct-3'
   },
   {
@@ -37,7 +56,11 @@ const officials = [
     slug: 'david-linder',
     role: 'Commissioner · Precinct 4',
     searchTerms: 'Commissioner Precinct 4',
-    summary: 'Represents Precinct 4 on Commissioners Court. The county lists Airport, Environmental Health, Purchasing, and Child Protective Services as his court liaison areas.',
+    summary: 'Represents Precinct 4, including West Columbia, Sweeny, and western Brazoria County.',
+    tldr: 'Commissioner for western county and rural communities.',
+    area: 'West Columbia, Sweeny, and western Brazoria County',
+    focus: 'Rural road preservation, flood mitigation, and local community services.',
+    evidenceNote: 'These are civic topics to track, not verified statements of the commissioner’s priorities. Check agendas, minutes, and project records for individual decisions and outcomes.',
     profile: 'https://www.brazoriacountytx.gov/government/commissioners-court/commissioner-precinct-4'
   }
 ];
@@ -63,6 +86,15 @@ function makeOfficialCard(official) {
         <span class="role-badge">${official.role}</span>
       </div>
       <p class="responsibility"><strong>Public role:</strong> ${official.summary}</p>
+      <p class="tldr-box"><strong>At a glance:</strong> ${official.tldr}</p>
+      <p class="official-area"><strong>Represented area:</strong> ${official.area}</p>
+      <p class="official-focus"><strong>Areas to track:</strong> ${official.focus}</p>
+      ${official.quote ? `<blockquote class="quote-box"><p>“${official.quote}”</p><cite>${official.quoteSource} · <a href="${official.profile}" target="_blank" rel="noopener noreferrer">Brazoria County</a></cite></blockquote>` : ''}
+      <details class="transcript-dropdown">
+        <summary>Evidence and context</summary>
+        <p>${official.evidenceNote}</p>
+        ${official.proofUrl ? `<a class="proof-link" href="${official.proofUrl}" target="_blank" rel="noopener noreferrer">ABC13 Commissioners Court apology coverage (video / transcript) <span aria-hidden="true">↗</span></a>` : ''}
+      </details>
       <p class="card-source">Officeholder and role listed on the official Brazoria County page.</p>
       <div class="card-actions">
         <a href="${official.profile}" target="_blank" rel="noopener noreferrer">Official county page <span aria-hidden="true">↗</span></a>

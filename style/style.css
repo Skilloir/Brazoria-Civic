@@ -364,6 +364,77 @@ input:focus-visible {
   color: var(--ink);
 }
 
+.official-card .tldr-box {
+  margin: 14px 0 10px;
+  border-left: 3px solid var(--coral);
+  background: #f3f5ef;
+  padding: 10px 12px;
+  color: var(--ink);
+  font-size: 0.82em;
+}
+
+.official-area,
+.official-focus {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.82em;
+}
+
+.official-area strong,
+.official-focus strong {
+  color: var(--ink);
+}
+
+.quote-box {
+  margin: 14px 0 0;
+  border-top: 1px solid var(--line);
+  padding: 12px 0 0;
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.88em;
+}
+
+.quote-box p {
+  margin-bottom: 6px;
+}
+
+.quote-box cite {
+  font-family: inherit;
+  font-size: 0.82em;
+  font-style: normal;
+}
+
+.quote-box a,
+.proof-link {
+  color: var(--green-dark);
+  font-weight: 750;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.transcript-dropdown {
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  color: var(--muted);
+  font-size: 0.78em;
+}
+
+.transcript-dropdown summary {
+  color: var(--green-dark);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.transcript-dropdown p {
+  margin: 9px 0;
+}
+
+.proof-link {
+  display: inline-block;
+  margin: 2px 0 4px;
+}
+
 .card-source {
   margin-top: 18px;
   padding-top: 12px;
@@ -478,7 +549,8 @@ body.high-contrast .top-bar {
 body.high-contrast .disclaimer-banner,
 body.high-contrast .transcript-note,
 body.high-contrast footer,
-body.high-contrast .role-badge {
+body.high-contrast .role-badge,
+body.high-contrast .official-card .tldr-box {
   border-color: #ff0;
   background: #000;
   color: #fff;
@@ -487,6 +559,11 @@ body.high-contrast .role-badge {
 body.high-contrast .source-links a,
 body.high-contrast .card-actions a,
 body.high-contrast .deeper-dive-link,
+body.high-contrast .quote-box a,
+body.high-contrast .proof-link,
+body.high-contrast .transcript-dropdown summary,
+body.high-contrast .official-area strong,
+body.high-contrast .official-focus strong,
 body.high-contrast .role-badge,
 body.high-contrast .eyebrow,
 body.high-contrast .card-actions a.video-search {
